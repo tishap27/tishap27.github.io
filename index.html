@@ -520,10 +520,6 @@
             color: #9ca3af;
         }
 
-        footer p + p {
-            margin-top: 0.3rem;
-        }
-
         .scroll-top {
             position: fixed;
             right: 1.5rem;
@@ -743,18 +739,19 @@
                         <path d="M6.364 3.05 5.657 3.757 9.192 7.293 5 7.293 5 8.293 11 8.293 11 2.293 10 2.293 10 6.485z"/>
                     </svg>
                 </a>
-                <br>
+		<br>
                 <a class="card-link" href="https://librarysearch.algonquincollege.com/permalink/01OCLS_ALGON/ssjb94/alma991003975068907322" target="_blank" rel="noreferrer" style="margin-top: 0.5rem; display: inline-flex;">
                     Algonquin College Library
                     <svg viewBox="0 0 16 16">
                         <path d="M6.364 3.05 5.657 3.757 9.192 7.293 5 7.293 5 8.293 11 8.293 11 2.293 10 2.293 10 6.485z"/>
                     </svg>
                 </a>
+
             </article>
         </div>
     </section>
 
-    <!-- Public projects -->
+    <!-- Public projects (curated GitHub) -->
     <section id="projects" aria-labelledby="projects-title">
         <div class="section-header">
             <div class="section-kicker">Selected public work</div>
@@ -765,20 +762,23 @@
         </div>
 
         <div class="projects-grid" aria-live="polite">
-            <!-- Projects here - keeping from original for brevity -->
+        <div class="projects-grid" aria-live="polite">
+            <!-- 1. AirLang DSL Compiler -->
             <article class="project-card">
                 <div class="project-header">
                     <h3 class="project-title">AirLang: Aviation DSL Compiler</h3>
                     <div class="project-icon" aria-hidden="true">✈️</div>
                 </div>
                 <p class="project-desc">
-                    Complete domain-specific language for aviation flight planning with 7-phase compilation pipeline, real-time METAR integration, and native aviation syntax.
+                    Complete domain-specific language for aviation flight planning with 7-phase compilation pipeline, real-time METAR integration, and native aviation syntax. Features built-in weight & balance, navigation calculations, and weather analysis with safety validations.
                 </p>
                 <div class="project-meta">
                     <span class="badge">
                         <span class="badge-dot"></span>
                         C · Compiler Design
                     </span>
+                    <span class="badge">Flight Planning DSL</span>
+                    <span class="badge">Aviation Safety</span>
                 </div>
                 <a class="card-link project-link" href="https://github.com/tishap27/AirLang" target="_blank" rel="noreferrer">
                     View repository
@@ -787,6 +787,218 @@
                     </svg>
                 </a>
             </article>
+
+            <!-- 2. Aircraft Monitoring System -->
+            <article class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">Aircraft Monitoring System</h3>
+                    <div class="project-icon" aria-hidden="true">🛩️</div>
+                </div>
+                <p class="project-desc">
+                    Embedded monitoring system using Arduino for tracking aircraft state, flight control, and ground control communication. Features sensor integration (temperature, motion, MPU6050), IR remote control, RFID authentication, and Node-RED dashboard integration.
+                </p>
+                <div class="project-meta">
+                    <span class="badge">
+                        <span class="badge-dot"></span>
+                        C++ · Arduino · IoT
+                    </span>
+                    <span class="badge">Embedded Systems</span>
+                    <span class="badge">Sensor Fusion</span>
+                </div>
+                <a class="card-link project-link" href="https://github.com/tishap27/aircraft-monitoring-system" target="_blank" rel="noreferrer">
+                    View repository
+                    <svg viewBox="0 0 16 16">
+                        <path d="M6.364 3.05 5.657 3.757 9.192 7.293 5 7.293 5 8.293 11 8.293 11 2.293 10 2.293 10 6.485z"/>
+                    </svg>
+                </a>
+            </article>
+
+            <!-- 3. ATC Simulator -->
+            <article class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">ATC Radar Simulator</h3>
+                    <div class="project-icon" aria-hidden="true">📡</div>
+                </div>
+                <p class="project-desc">
+                    Real-time Air Traffic Control simulator written in Ada. Models aircraft movement, enforces ICAO separation standards, tracks wake turbulence, detects conflicts, and generates resolution advisories. Features flight phase monitoring and ASCII radar display.
+                </p>
+                <div class="project-meta">
+                    <span class="badge">
+                        <span class="badge-dot"></span>
+                        Ada · Safety-Critical
+                    </span>
+                    <span class="badge">ATC Simulation</span>
+                    <span class="badge">Real-Time Systems</span>
+                </div>
+                <a class="card-link project-link" href="https://github.com/tishap27/ATC_Simulator" target="_blank" rel="noreferrer">
+                    View repository
+                    <svg viewBox="0 0 16 16">
+                        <path d="M6.364 3.05 5.657 3.757 9.192 7.293 5 7.293 5 8.293 11 8.293 11 2.293 10 2.293 10 6.485z"/>
+                    </svg>
+                </a>
+            </article>
+
+            <!-- 4. IrisPathQ Quantum Routing -->
+            <article class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">IrisPathQ: Quantum Route Optimization</h3>
+                    <div class="project-icon" aria-hidden="true">⚛️</div>
+                </div>
+                <p class="project-desc">
+                    Hybrid quantum-classical flight route optimization using QAOA and A* pathfinding. Minimizes fuel consumption while avoiding weather hazards and airspace conflicts. Demonstrates quantum advantage over greedy algorithms for multi-flight route selection.
+                </p>
+                <div class="project-meta">
+                    <span class="badge">
+                        <span class="badge-dot"></span>
+                        C · Python · Qiskit
+                    </span>
+                    <span class="badge">Quantum Computing</span>
+                    <span class="badge">Route Optimization</span>
+                </div>
+                <a class="card-link project-link" href="https://github.com/tishap27/IrisPathQ" target="_blank" rel="noreferrer">
+                    View repository
+                    <svg viewBox="0 0 16 16">
+                        <path d="M6.364 3.05 5.657 3.757 9.192 7.293 5 7.293 5 8.293 11 8.293 11 2.293 10 2.293 10 6.485z"/>
+                    </svg>
+                </a>
+            </article>
+
+            <!-- 5. AeroC Booking DSL -->
+            <article class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">AeroC: Aviation Booking Language</h3>
+                    <div class="project-icon" aria-hidden="true">🎫</div>
+                </div>
+                <p class="project-desc">
+                    Domain-specific language for aviation Global Distribution System (GDS) operations. Parser and interpreter for airline booking workflows, demonstrating DSL design principles in aviation commerce and reservation systems.
+                </p>
+                <div class="project-meta">
+                    <span class="badge">
+                        <span class="badge-dot"></span>
+                        C · DSL Design
+                    </span>
+                    <span class="badge">Aviation Commerce</span>
+                    <span class="badge">Parser Development</span>
+                </div>
+                <a class="card-link project-link" href="https://github.com/tishap27/AeroC" target="_blank" rel="noreferrer">
+                    View repository
+                    <svg viewBox="0 0 16 16">
+                        <path d="M6.364 3.05 5.657 3.757 9.192 7.293 5 7.293 5 8.293 11 8.293 11 2.293 10 2.293 10 6.485z"/>
+                    </svg>
+                </a>
+            </article>
+
+            <!-- 6. Quantum Circuit Simulator -->
+            <article class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">Quantum Circuit Simulator</h3>
+                    <div class="project-icon" aria-hidden="true">🔬</div>
+                </div>
+                <p class="project-desc">
+                    Interactive quantum circuit simulator built with Java Swing. Client-server architecture with SQLite database, user authentication, and visual circuit design. Simulates quantum gates, measurements, and provides histogram visualization of quantum states.
+                </p>
+                <div class="project-meta">
+                    <span class="badge">
+                        <span class="badge-dot"></span>
+                        Java · Swing · SQLite
+                    </span>
+                    <span class="badge">Quantum Simulation</span>
+                    <span class="badge">GUI Development</span>
+                </div>
+                <a class="card-link project-link" href="https://github.com/tishap27/QuantumCircuit_Simulator" target="_blank" rel="noreferrer">
+                    View repository
+                    <svg viewBox="0 0 16 16">
+                        <path d="M6.364 3.05 5.657 3.757 9.192 7.293 5 7.293 5 8.293 11 8.293 11 2.293 10 2.293 10 6.485z"/>
+                    </svg>
+                </a>
+            </article>
+
+            <!-- 7. ATOM Flight Computer -->
+            <article class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">ATOM Flight Computer</h3>
+                    <div class="project-icon" aria-hidden="true">🚀</div>
+                </div>
+                <p class="project-desc">
+                    Custom flight computer for model rocketry featuring sensor fusion, active stabilization, and real-time telemetry. ESP32-based system with IMU integration, thermal imaging (MLX90640), and servo-controlled fin stabilization for flight control.
+                </p>
+                <div class="project-meta">
+                    <span class="badge">
+                        <span class="badge-dot"></span>
+                        C++ · ESP32 · Embedded
+                    </span>
+                    <span class="badge">Flight Control</span>
+                    <span class="badge">Sensor Fusion</span>
+                </div>
+                <a class="card-link project-link" href="https://github.com/tishap27/ATOM-Flight-Computer" target="_blank" rel="noreferrer">
+                    View repository
+                    <svg viewBox="0 0 16 16">
+                        <path d="M6.364 3.05 5.657 3.757 9.192 7.293 5 7.293 5 8.293 11 8.293 11 2.293 10 2.293 10 6.485z"/>
+                    </svg>
+                </a>
+            </article>
+
+            <!-- 8. C Programming Sandbox -->
+            <article class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">C & Ada Programming Archive</h3>
+                    <div class="project-icon" aria-hidden="true">💻</div>
+                </div>
+                <p class="project-desc">
+                    Collection of aviation-focused C and Ada programs including flight planning tools, runway incursion alerts, airline reservation systems, quantum algorithms, data structures, and various course assignments demonstrating systems programming fundamentals.
+                </p>
+                <div class="project-meta">
+                    <span class="badge">
+                        <span class="badge-dot"></span>
+                        C · Ada · Algorithms
+                    </span>
+                    <span class="badge">Data Structures</span>
+                    <span class="badge">Aviation Tools</span>
+                </div>
+                <a class="card-link project-link" href="https://github.com/tishap27/c-sandbox" target="_blank" rel="noreferrer">
+                    View repository
+                    <svg viewBox="0 0 16 16">
+                        <path d="M6.364 3.05 5.657 3.757 9.192 7.293 5 7.293 5 8.293 11 8.293 11 2.293 10 2.293 10 6.485z"/>
+                    </svg>
+                </a>
+            </article>
+
+            <!-- 9. Arduino Sandbox -->
+            <article class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">Arduino Projects Collection</h3>
+                    <div class="project-icon" aria-hidden="true">🔧</div>
+                </div>
+                <p class="project-desc">
+                    Archive of Arduino-based embedded systems projects and experiments, exploring microcontroller programming, sensor integration, and hardware interfacing for various aviation and general-purpose applications.
+                </p>
+                <div class="project-meta">
+                    <span class="badge">
+                        <span class="badge-dot"></span>
+                        C++ · Arduino · Hardware
+                    </span>
+                    <span class="badge">Embedded Development</span>
+                    <span class="badge">Prototyping</span>
+                </div>
+                <a class="card-link project-link" href="https://github.com/tishap27/Arduino-sandbox" target="_blank" rel="noreferrer">
+                    View repository
+                    <svg viewBox="0 0 16 16">
+                        <path d="M6.364 3.05 5.657 3.757 9.192 7.293 5 7.293 5 8.293 11 8.293 11 2.293 10 2.293 10 6.485z"/>
+                    </svg>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <!-- Private projects -->
+    <section id="private-projects" aria-labelledby="private-title">
+        <div class="section-header">
+            <div class="section-kicker">Private & experimental work</div>
+            <h2 id="private-title" class="section-title">Additional private projects</h2>
+            <p class="section-subtitle">
+                More aviation, embedded, and optimization projects are private on GitHub. Collaboration access can be
+                provided on request.
+            </p>
         </div>
     </section>
 
@@ -809,6 +1021,9 @@
                     <strong>LinkedIn:</strong> <a class="card-link" href="https://www.linkedin.com/in/tisha-patel-1068872b9/" target="_blank" rel="noreferrer">linkedin.com/in/tisha-patel-1068872b9</a><br>
                     <strong>ResearchGate:</strong> <a class="card-link" href="https://www.researchgate.net/profile/Tisha-Patel-18" target="_blank" rel="noreferrer">researchgate.net/profile/Tisha-Patel-18</a>
                 </p>
+                <p class="private-note">
+                    Selected private repositories can be shared with prospective collaborators or interviewers on request.
+                </p>
             </div>
         </article>
     </section>
@@ -816,7 +1031,7 @@
 
 <footer>
     <p>© <span id="year"></span> Tisha Patel · Aviation software, compilers, and quantum‑inspired optimization.</p>
-    <p style="font-size: 0.78rem; color: #6b7280; margin-top: 0.5rem;">Built by a pilot who codes.</p>
+    <p style="font-size: 0.78rem; color: #6b7280; margin-top: 0.5rem;">Built by a pilot who codes</p>
 </footer>
 
 <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">↑</button>
