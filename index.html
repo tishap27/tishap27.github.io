@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tisha Patel – Aviation Software & Research</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --navy-900: #020617;
+            --navy-800: #0f172a;
+            --navy-700: #1e293b;
+            --navy-600: #334155;
+            --slate-400: #94a3b8;
+            --slate-300: #cbd5e1;
+            --slate-200: #e2e8f0;
+            --blue-500: #3b82f6;
+            --blue-400: #60a5fa;
+            --accent-soft: rgba(59, 130, 246, 0.12);
+            --radius-md: 10px;
+            --radius-lg: 14px;
+            --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.65);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            background: radial-gradient(circle at top, #0b1220 0, #020617 55%, #020617 100%);
+            color: #e5e7eb;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        main {
+            position: relative;
+            z-index: 1;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(to right, rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+            background-size: 80px 80px;
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            backdrop-filter: blur(18px);
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.75), transparent);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+        }
+
+        .nav {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 1.1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .plane-mark {
+            width: 34px;
+            height: 34px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 30% 20%, #60a5fa, #1d4ed8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.4), 0 10px 25px rgba(15, 23, 42, 0.8);
+        }
+
+        .plane-mark svg {
+            width: 18px;
+            height: 18px;
+            fill: #e5f0ff;
+            transform: rotate(90deg);
+        }
+
+        .nav-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #e5e7eb;
+        }
+
+        .nav-subtitle {
+            font-size: 0.8rem;
+            color: #9ca3af;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.25rem;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            position: relative;
+            padding-bottom: 0.15rem;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 1px;
+            background: linear-gradient(to right, #60a5fa, #22c55e);
+            transition: width 0.18s ease-out;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .page {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 3.5rem;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
+            gap: 2.5rem;
+            align-items: center;
+            margin-top: 1.5rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .hero-main {
+            position: relative;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.25rem 0.7rem;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.5);
+            background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), rgba(15, 23, 42, 0.9));
+            font-size: 0.78rem;
+            color: #e5e7eb;
+            margin-bottom: 1.1rem;
+        }
+
+        .hero-tag-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: #22c55e;
+            box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
+        }
+
+        .hero-name {
+            font-size: clamp(2.4rem, 3vw, 2.9rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero-role {
+            font-size: 1.05rem;
+            color: #cbd5e1;
+            margin-bottom: 1.4rem;
+        }
+
+        .hero-role span {
+            color: #60a5fa;
+            font-weight: 500;
+        }
+
+        .hero-bio {
+            font-size: 0.98rem;
+            color: #e5e7eb;
+            max-width: 38rem;
+        }
+
+        .hero-bio span {
+            color: #a5b4fc;
+        }
+
+        .hero-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.8rem;
+        }
+
+        .btn-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.55rem 1.1rem;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            background: rgba(15, 23, 42, 0.9);
+            color: #e5e7eb;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background 0.18s ease, border-color 0.18s ease, transform 0.12s ease;
+        }
+
+        .btn-link svg {
+            width: 15px;
+            height: 15px;
+            fill: currentColor;
+        }
+
+        .btn-link:hover {
+            background: rgba(30, 64, 175, 0.9);
+            border-color: #60a5fa;
+            transform: translateY(-1px);
+        }
+
+        .btn-primary {
+            border-color: transparent;
+            background: linear-gradient(to right, #3b82f6, #22c55e);
+            color: #0b1120;
+            font-weight: 500;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(to right, #2563eb, #16a34a);
+            border-color: transparent;
+        }
+
+        .hero-aside {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .avatar-wrap {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            border-radius: 999px;
+            padding: 3px;
+            background: conic-gradient(from 210deg, #22c55e, #3b82f6, #a855f7, #22c55e);
+            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.9);
+        }
+
+        .avatar-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            background: radial-gradient(circle at top, #1f2937, #020617);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .avatar-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-meta-card {
+            width: 100%;
+            border-radius: var(--radius-lg);
+            background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.18), rgba(15, 23, 42, 0.96));
+            border: 1px solid rgba(148, 163, 184, 0.45);
+            padding: 1rem 1.1rem;
+            font-size: 0.85rem;
+            color: #e5e7eb;
+        }
+
+        .hero-meta-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #9ca3af;
+            margin-bottom: 0.4rem;
+        }
+
+        .hero-meta-body {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        .hero-meta-body span {
+            color: #cbd5e1;
+        }
+
+        section {
+            margin-bottom: 3.5rem;
+        }
+
+        .section-header {
+            margin-bottom: 1.8rem;
+        }
+
+        .section-kicker {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #9ca3af;
+            margin-bottom: 0.35rem;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.35rem;
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: #9ca3af;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+            gap: 1.6rem;
+        }
+
+        .card {
+            border-radius: var(--radius-lg);
+            background: radial-gradient(circle at top left, rgba(30, 64, 175, 0.35), rgba(15, 23, 42, 0.98));
+            border: 1px solid rgba(148, 163, 184, 0.5);
+            padding: 1.4rem 1.5rem;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .card-muted {
+            background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.98));
+        }
+
+        .card-type {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            font-size: 0.75rem;
+            color: #e5e7eb;
+            margin-bottom: 0.7rem;
+        }
+
+        .card-type-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 999px;
+            background: #60a5fa;
+        }
+
+        .card-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-subtitle {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-body {
+            font-size: 0.9rem;
+            color: #e5e7eb;
+            margin-bottom: 0.9rem;
+        }
+
+        .card-body p + p {
+            margin-top: 0.4rem;
+        }
+
+        .card-list {
+            margin-top: 0.4rem;
+            padding-left: 1.1rem;
+            font-size: 0.88rem;
+            color: #e5e7eb;
+        }
+
+        .card-list li {
+            margin-bottom: 0.25rem;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.85rem;
+            color: #60a5fa;
+            text-decoration: none;
+        }
+
+        .card-link svg {
+            width: 13px;
+            height: 13px;
+        }
+
+        .card-link:hover {
+            color: #93c5fd;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.4rem;
+        }
+
+        .project-card {
+            border-radius: var(--radius-md);
+            background: rgba(15, 23, 42, 0.96);
+            border: 1px solid rgba(148, 163, 184, 0.45);
+            padding: 1.1rem 1.2rem;
+            box-shadow: 0 14px 35px rgba(15, 23, 42, 0.85);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 170px;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-title {
+            font-size: 0.98rem;
+            font-weight: 600;
+        }
+
+        .project-icon {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .project-desc {
+            font-size: 0.88rem;
+            color: #e5e7eb;
+            margin-bottom: 0.7rem;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            font-size: 0.8rem;
+            color: #9ca3af;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.15rem 0.55rem;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            background: rgba(15, 23, 42, 0.9);
+        }
+
+        .badge-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: #60a5fa;
+        }
+
+        .project-link {
+            margin-top: 0.7rem;
+            font-size: 0.82rem;
+        }
+
+        .private-note {
+            font-size: 0.86rem;
+            color: #9ca3af;
+            margin-top: 0.4rem;
+        }
+
+        footer {
+            border-top: 1px solid rgba(148, 163, 184, 0.3);
+            padding: 1.8rem 1.5rem 2.2rem;
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #9ca3af;
+        }
+
+        footer p + p {
+            margin-top: 0.3rem;
+        }
+
+        .scroll-top {
+            position: fixed;
+            right: 1.5rem;
+            bottom: 1.5rem;
+            width: 34px;
+            height: 34px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.7);
+            background: rgba(15, 23, 42, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #e5e7eb;
+            font-size: 0.9rem;
+            cursor: pointer;
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.9);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.18s ease, transform 0.18s ease;
+            z-index: 30;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .hero-aside {
+                max-width: 320px;
+                margin: 0 auto;
+            }
+
+            .grid-2 {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        @media (max-width: 720px) {
+            .nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.6rem;
+            }
+
+            .nav-links {
+                font-size: 0.85rem;
+            }
+
+            .page {
+                padding-inline: 1.1rem;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .hero-links {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-meta-card {
+                font-size: 0.8rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav class="nav" aria-label="Primary navigation">
+        <div class="nav-left">
+            <div class="plane-mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                    <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+                </svg>
+            </div>
+            <div>
+                <div class="nav-title">TISHA PATEL</div>
+                <div class="nav-subtitle">Aviation software · Compilers · Quantum optimization</div>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="#research">Research</a>
+            <a href="#projects">Projects</a>
+            <a href="#private-projects">Private work</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+</header>
+
+<main class="page">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-main">
+            <div class="hero-tag">
+                <span class="hero-tag-dot"></span>
+                Focused on safety‑critical aviation software
+            </div>
+            <h1 id="hero-title" class="hero-name">Tisha Patel</h1>
+            <p class="hero-role">
+                Computer Engineering Technology student specializing in <span>aviation software systems, compiler design, and optimization.</span>
+            </p>
+            <p class="hero-bio">
+                I design and build software for flight planning, air traffic operations, and biometric security—combining
+                <span>domain‑specific languages, embedded systems, and emerging computation models</span> such as quantum‑inspired optimization.
+                My work emphasizes correctness, safety, and operational realism in aerospace environments.
+            </p>
+            <div class="hero-links" aria-label="External profiles">
+                <a class="btn-link btn-primary" href="https://www.researchgate.net/profile/Tisha-Patel-18" target="_blank" rel="noreferrer">
+                    Research profile
+                </a>
+                <a class="btn-link" href="https://github.com/tishap27" target="_blank" rel="noreferrer">
+                    <svg viewBox="0 0 16 16">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                    GitHub
+                </a>
+                <a class="btn-link" href="https://www.linkedin.com/in/tisha-patel-1068872b9/" target="_blank" rel="noreferrer">
+                    <svg viewBox="0 0 16 16">
+                        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                    </svg>
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+
+        <aside class="hero-aside" aria-label="Profile summary">
+            <div class="avatar-wrap">
+                <div class="avatar-inner">
+                    <img src="https://avatars.githubusercontent.com/u/169212897?v=4" alt="Portrait of Tisha Patel">
+                </div>
+            </div>
+            <div class="hero-meta-card">
+                <div class="hero-meta-title">Profile</div>
+                <div class="hero-meta-body">
+                    <span><strong>Location:</strong> Ottawa, Ontario, Canada</span>
+                    <span><strong>Program:</strong> Computer Engineering Technology</span>
+                    <span><strong>Interests:</strong> Flight planning, ATC systems, embedded avionics, quantum‑inspired optimization</span>
+                </div>
+            </div>
+        </aside>
+    </section>
+
+    <!-- Research -->
+    <section id="research" aria-labelledby="research-title">
+        <div class="section-header">
+            <div class="section-kicker">Research & Publications</div>
+            <h2 id="research-title" class="section-title">Aviation‑focused software and optimization research</h2>
+            <p class="section-subtitle">Formal work at the intersection of flight operations, language design, and quantum‑inspired optimization.</p>
+        </div>
+
+        <div class="grid-2">
+            <!-- AirLang -->
+            <article class="card" aria-label="AirLang research paper">
+                <div class="card-type">
+                    <span class="card-type-dot"></span>
+                    Research paper · Domain‑specific language
+                </div>
+                <h3 class="card-title">AirLang: A Domain‑Specific Language for Aviation Flight Planning and Operations</h3>
+                <p class="card-subtitle">A compiler‑driven approach to safer, more consistent flight planning workflows.</p>
+                <div class="card-body">
+                    <p>
+                        Designed and implemented a seven‑phase compiler for a domain‑specific language tailored to aviation
+                        flight planning and operational validation. The language encodes aircraft performance, route structure,
+                        and operational constraints directly into its type system and semantics.
+                    </p>
+                    <ul class="card-list">
+                        <li>Lexical, syntactic, and semantic analysis specialized for aviation concepts</li>
+                        <li>Haversine‑based distance and fuel burn calculations</li>
+                        <li>Center‑of‑gravity and weight‑and‑balance validation at compile time</li>
+                        <li>Enforcement of aircraft limitations and operational rules before execution</li>
+                    </ul>
+                </div>
+                <a class="card-link" href="https://www.researchgate.net/publication/395303012_AirLang_A_Domain-Specific_Language_for_Aviation_Flight_Planning_and_Operations" target="_blank" rel="noreferrer">
+                    View publication
+                    <svg viewBox="0 0 16 16">
+                        <path d="M6.364 3.05 5.657 3.757 9.192 7.293 5 7.293 5 8.293 11 8.293 11 2.293 10 2.293 10 6.485z"/>
+                    </svg>
+                </a>
+            </article>
+
+            <!-- IrisPathQ -->
+            <article class="card card-muted" aria-label="IrisPathQ research paper">
+                <div class="card-type">
+                    <span class="card-type-dot"></span>
+                    Research paper · Quantum‑enhanced optimization
+                </div>
+                <h3 class="card-title">IrisPathQ: Quantum‑Enhanced Flight Route Optimization Using QAOA</h3>
+                <p class="card-subtitle">Hybrid quantum–classical optimization for realistic aviation routing constraints.</p>
+                <div class="card-body">
+                    <p>
+                        IrisPathQ applies the Quantum Approximate Optimization Algorithm (QAOA) to evaluate and optimize
+                        flight routes under operational constraints. The framework integrates classical preprocessing with
+                        quantum‑inspired search to explore high‑dimensional routing spaces.
+                    </p>
+                    <ul class="card-list">
+                        <li>Encodes airspace structure, weather risk, and traffic density into a quantum‑compatible cost model</li>
+                        <li>Evaluates multiple candidate routes using hybrid QAOA layers</li>
+                        <li>Demonstrates potential for quantum‑assisted decision‑making in next‑generation ATC systems</li>
+                    </ul>
+                </div>
+                <a class="card-link" href="https://www.researchgate.net/publication/399958487_IrisPathQ_Quantum-Enhanced_Flight_Route_Optimization_Using_QAOA" target="_blank" rel="noreferrer">
+                    View publication
+                    <svg viewBox="0 0 16 16">
+                        <path d="M6.364 3.05 5.657 3.757 9.192 7.293 5 7.293 5 8.293 11 8.293 11 2.293 10 2.293 10 6.485z"/>
+                    </svg>
+                </a>
+                <br>
+                <a class="card-link" href="https://librarysearch.algonquincollege.com/permalink/01OCLS_ALGON/ssjb94/alma991003975068907322" target="_blank" rel="noreferrer" style="margin-top: 0.5rem; display: inline-flex;">
+                    Algonquin College Library
+                    <svg viewBox="0 0 16 16">
+                        <path d="M6.364 3.05 5.657 3.757 9.192 7.293 5 7.293 5 8.293 11 8.293 11 2.293 10 2.293 10 6.485z"/>
+                    </svg>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <!-- Public projects -->
+    <section id="projects" aria-labelledby="projects-title">
+        <div class="section-header">
+            <div class="section-kicker">Selected public work</div>
+            <h2 id="projects-title" class="section-title">Open‑source and public repositories</h2>
+            <p class="section-subtitle">
+                A subset of my work is visible on GitHub. Many aviation and embedded projects are private or under NDA.
+            </p>
+        </div>
+
+        <div class="projects-grid" aria-live="polite">
+            <!-- Projects here - keeping from original for brevity -->
+            <article class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title">AirLang: Aviation DSL Compiler</h3>
+                    <div class="project-icon" aria-hidden="true">✈️</div>
+                </div>
+                <p class="project-desc">
+                    Complete domain-specific language for aviation flight planning with 7-phase compilation pipeline, real-time METAR integration, and native aviation syntax.
+                </p>
+                <div class="project-meta">
+                    <span class="badge">
+                        <span class="badge-dot"></span>
+                        C · Compiler Design
+                    </span>
+                </div>
+                <a class="card-link project-link" href="https://github.com/tishap27/AirLang" target="_blank" rel="noreferrer">
+                    View repository
+                    <svg viewBox="0 0 16 16">
+                        <path d="M6.364 3.05 5.657 3.757 9.192 7.293 5 7.293 5 8.293 11 8.293 11 2.293 10 2.293 10 6.485z"/>
+                    </svg>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" aria-labelledby="contact-title">
+        <div class="section-header">
+            <div class="section-kicker">Contact</div>
+            <h2 id="contact-title" class="section-title">Get in touch</h2>
+            <p class="section-subtitle">
+                For research discussions, collaboration, or engineering roles in aviation and safety‑critical software.
+            </p>
+        </div>
+
+        <article class="card">
+            <h3 class="card-title">Contact details</h3>
+            <div class="card-body">
+                <p>
+                    <strong>Email:</strong> <a class="card-link" href="mailto:tishaapatel08@gmail.com">tishaapatel08@gmail.com</a><br>
+                    <strong>GitHub:</strong> <a class="card-link" href="https://github.com/tishap27" target="_blank" rel="noreferrer">github.com/tishap27</a><br>
+                    <strong>LinkedIn:</strong> <a class="card-link" href="https://www.linkedin.com/in/tisha-patel-1068872b9/" target="_blank" rel="noreferrer">linkedin.com/in/tisha-patel-1068872b9</a><br>
+                    <strong>ResearchGate:</strong> <a class="card-link" href="https://www.researchgate.net/profile/Tisha-Patel-18" target="_blank" rel="noreferrer">researchgate.net/profile/Tisha-Patel-18</a>
+                </p>
+            </div>
+        </article>
+    </section>
+</main>
+
+<footer>
+    <p>© <span id="year"></span> Tisha Patel · Aviation software, compilers, and quantum‑inspired optimization.</p>
+    <p style="font-size: 0.78rem; color: #6b7280; margin-top: 0.5rem;">Built by a pilot who codes.</p>
+</footer>
+
+<button class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">↑</button>
+
+<script>
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            scrollBtn.classList.add('visible');
+        } else {
+            scrollBtn.classList.remove('visible');
+        }
+    });
+    scrollBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
