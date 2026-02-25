@@ -1,1 +1,6 @@
-snapshots/ 
+notes.txt
+TODO.md
+drafts/
+
+# Raw photo files
+*.CR2
