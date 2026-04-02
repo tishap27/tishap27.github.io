@@ -451,6 +451,39 @@
             justify-content: space-between;
             min-height: 170px;
         }
+		.project-card.wip {
+    border-color: rgba(251, 191, 36, 0.35);
+    background: radial-gradient(circle at top left, rgba(120, 80, 0, 0.18), rgba(15, 23, 42, 0.97));
+}
+
+.wip-banner {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.18rem 0.6rem;
+    border-radius: 999px;
+    background: rgba(120, 80, 0, 0.35);
+    border: 1px solid rgba(251, 191, 36, 0.5);
+    font-size: 0.72rem;
+    color: #fbbf24;
+    font-weight: 500;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+      .wip-dot {
+         width: 6px;
+          height: 6px;
+          border-radius: 999px;
+          background: #fbbf24;
+          animation: wip-pulse 1.8s ease-in-out infinite;
+       }
+
+       @keyframes wip-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
 
         .project-header {
             display: flex;
@@ -982,6 +1015,36 @@
                     <span class="badge">Prototyping</span>
                 </div>
                 <a class="card-link project-link" href="https://github.com/tishap27/Arduino-sandbox" target="_blank" rel="noreferrer">
+                    View repository
+                    <svg viewBox="0 0 16 16">
+                        <path d="M6.364 3.05 5.657 3.757 9.192 7.293 5 7.293 5 8.293 11 8.293 11 2.293 10 2.293 10 6.485z"/>
+                    </svg>
+                </a>
+            </article>
+			 <!-- 10. AirLume — IN PROGRESS (last card) -->
+            <article class="project-card wip" aria-label="AirLume — work in progress">
+                <div>
+                    <div class="wip-banner">
+                        <span class="wip-dot"></span>
+                        In progress
+                    </div>
+                    <div class="project-header">
+                        <h3 class="project-title">AirLume: Lightning Strike Prediction</h3>
+                        <div class="project-icon" aria-hidden="true">⚡</div>
+                    </div>
+                    <p class="project-desc">
+                        Multi-language system that analyzes atmospheric conditions along flight paths to predict lightning formation zones and recommend safer routes. Integrates real-time weather data with a physics-based E-field risk engine. Currently finishing route visualization and alternative path suggestions.
+                    </p>
+                    <div class="project-meta">
+                        <span class="badge">
+                            <span class="badge-dot"></span>
+                            C · Ada · Python · Java
+                        </span>
+                        <span class="badge">Aviation Safety</span>
+                        <span class="badge">Weather Modeling</span>
+                    </div>
+                </div>
+                <a class="card-link project-link" href="https://github.com/tishap27/AirLume" target="_blank" rel="noreferrer">
                     View repository
                     <svg viewBox="0 0 16 16">
                         <path d="M6.364 3.05 5.657 3.757 9.192 7.293 5 7.293 5 8.293 11 8.293 11 2.293 10 2.293 10 6.485z"/>
