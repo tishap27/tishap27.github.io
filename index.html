@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 
-    <style>
+   <style>
         :root {
             --navy-900: #020617;
             --navy-800: #0f172a;
@@ -27,11 +27,7 @@
             --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.65);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'IBM Plex Sans', sans-serif;
@@ -41,10 +37,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        main {
-            position: relative;
-            z-index: 1;
-        }
+        main { position: relative; z-index: 1; }
 
         body::before {
             content: "";
@@ -77,76 +70,32 @@
             justify-content: space-between;
         }
 
-        .nav-left {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
+        .nav-left { display: flex; align-items: center; gap: 0.75rem; }
 
         .plane-mark {
-            width: 34px;
-            height: 34px;
+            width: 34px; height: 34px;
             border-radius: 999px;
             background: radial-gradient(circle at 30% 20%, #60a5fa, #1d4ed8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
             box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.4), 0 10px 25px rgba(15, 23, 42, 0.8);
         }
 
-        .plane-mark svg {
-            width: 18px;
-            height: 18px;
-            fill: #e5f0ff;
-            transform: rotate(90deg);
-        }
+        .plane-mark svg { width: 18px; height: 18px; fill: #e5f0ff; transform: rotate(90deg); }
 
-        .nav-title {
-            font-size: 0.95rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: #e5e7eb;
-        }
+        .nav-title { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #e5e7eb; }
+        .nav-subtitle { font-size: 0.8rem; color: #9ca3af; }
 
-        .nav-subtitle {
-            font-size: 0.8rem;
-            color: #9ca3af;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.25rem;
-            font-size: 0.9rem;
-        }
-
-        .nav-links a {
-            color: #cbd5e1;
-            text-decoration: none;
-            position: relative;
-            padding-bottom: 0.15rem;
-        }
-
+        .nav-links { display: flex; gap: 1.25rem; font-size: 0.9rem; }
+        .nav-links a { color: #cbd5e1; text-decoration: none; position: relative; padding-bottom: 0.15rem; }
         .nav-links a::after {
             content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 0;
-            height: 1px;
+            position: absolute; left: 0; bottom: 0; width: 0; height: 1px;
             background: linear-gradient(to right, #60a5fa, #22c55e);
             transition: width 0.18s ease-out;
         }
+        .nav-links a:hover::after { width: 100%; }
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .page {
-            max-width: 1120px;
-            margin: 0 auto;
-            padding: 2.5rem 1.5rem 3.5rem;
-        }
+        .page { max-width: 1120px; margin: 0 auto; padding: 2.5rem 1.5rem 3.5rem; }
 
         .hero {
             display: grid;
@@ -157,199 +106,79 @@
             margin-bottom: 3.5rem;
         }
 
-        .hero-main {
-            position: relative;
-        }
-
         .hero-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+            display: inline-flex; align-items: center; gap: 0.5rem;
             padding: 0.25rem 0.7rem;
             border-radius: 999px;
             border: 1px solid rgba(148, 163, 184, 0.5);
             background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), rgba(15, 23, 42, 0.9));
-            font-size: 0.78rem;
-            color: #e5e7eb;
-            margin-bottom: 1.1rem;
+            font-size: 0.78rem; color: #e5e7eb; margin-bottom: 1.1rem;
         }
 
-        .hero-tag-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 999px;
-            background: #22c55e;
-            box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
-        }
+        .hero-tag-dot { width: 7px; height: 7px; border-radius: 999px; background: #22c55e; box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25); }
 
-        .hero-name {
-            font-size: clamp(2.4rem, 3vw, 2.9rem);
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            margin-bottom: 0.6rem;
-        }
+        .hero-name { font-size: clamp(2.4rem, 3vw, 2.9rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.6rem; }
+        .hero-role { font-size: 1.05rem; color: #cbd5e1; margin-bottom: 1.4rem; }
+        .hero-role span { color: #60a5fa; font-weight: 500; }
+        .hero-bio { font-size: 0.98rem; color: #e5e7eb; max-width: 38rem; }
+        .hero-bio span { color: #a5b4fc; }
 
-        .hero-role {
-            font-size: 1.05rem;
-            color: #cbd5e1;
-            margin-bottom: 1.4rem;
-        }
-
-        .hero-role span {
-            color: #60a5fa;
-            font-weight: 500;
-        }
-
-        .hero-bio {
-            font-size: 0.98rem;
-            color: #e5e7eb;
-            max-width: 38rem;
-        }
-
-        .hero-bio span {
-            color: #a5b4fc;
-        }
-
-        .hero-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-top: 1.8rem;
-        }
+        .hero-links { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.8rem; }
 
         .btn-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.45rem;
+            display: inline-flex; align-items: center; gap: 0.45rem;
             padding: 0.55rem 1.1rem;
             border-radius: 999px;
             border: 1px solid rgba(148, 163, 184, 0.6);
             background: rgba(15, 23, 42, 0.9);
-            color: #e5e7eb;
-            text-decoration: none;
-            font-size: 0.9rem;
+            color: #e5e7eb; text-decoration: none; font-size: 0.9rem;
             transition: background 0.18s ease, border-color 0.18s ease, transform 0.12s ease;
         }
-
-        .btn-link svg {
-            width: 15px;
-            height: 15px;
-            fill: currentColor;
-        }
-
-        .btn-link:hover {
-            background: rgba(30, 64, 175, 0.9);
-            border-color: #60a5fa;
-            transform: translateY(-1px);
-        }
+        .btn-link svg { width: 15px; height: 15px; fill: currentColor; }
+        .btn-link:hover { background: rgba(30, 64, 175, 0.9); border-color: #60a5fa; transform: translateY(-1px); }
 
         .btn-primary {
             border-color: transparent;
             background: linear-gradient(to right, #3b82f6, #22c55e);
-            color: #0b1120;
-            font-weight: 500;
+            color: #0b1120; font-weight: 500;
         }
+        .btn-primary:hover { background: linear-gradient(to right, #2563eb, #16a34a); border-color: transparent; }
 
-        .btn-primary:hover {
-            background: linear-gradient(to right, #2563eb, #16a34a);
-            border-color: transparent;
-        }
-
-        .hero-aside {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.2rem;
-        }
+        .hero-aside { display: flex; flex-direction: column; align-items: center; gap: 1.2rem; }
 
         .avatar-wrap {
-            position: relative;
-            width: 150px;
-            height: 150px;
-            border-radius: 999px;
-            padding: 3px;
+            position: relative; width: 150px; height: 150px;
+            border-radius: 999px; padding: 3px;
             background: conic-gradient(from 210deg, #22c55e, #3b82f6, #a855f7, #22c55e);
             box-shadow: 0 20px 45px rgba(15, 23, 42, 0.9);
         }
-
         .avatar-inner {
-            width: 100%;
-            height: 100%;
-            border-radius: inherit;
+            width: 100%; height: 100%; border-radius: inherit;
             background: radial-gradient(circle at top, #1f2937, #020617);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
+            display: flex; align-items: center; justify-content: center; overflow: hidden;
         }
-
-        .avatar-inner img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .avatar-inner img { width: 100%; height: 100%; object-fit: cover; }
 
         .hero-meta-card {
             width: 100%;
             border-radius: var(--radius-lg);
             background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.18), rgba(15, 23, 42, 0.96));
             border: 1px solid rgba(148, 163, 184, 0.45);
-            padding: 1rem 1.1rem;
-            font-size: 0.85rem;
-            color: #e5e7eb;
+            padding: 1rem 1.1rem; font-size: 0.85rem; color: #e5e7eb;
         }
+        .hero-meta-title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; color: #9ca3af; margin-bottom: 0.4rem; }
+        .hero-meta-body { display: flex; flex-direction: column; gap: 0.15rem; }
+        .hero-meta-body span { color: #cbd5e1; }
 
-        .hero-meta-title {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: #9ca3af;
-            margin-bottom: 0.4rem;
-        }
+        section { margin-bottom: 3.5rem; }
 
-        .hero-meta-body {
-            display: flex;
-            flex-direction: column;
-            gap: 0.15rem;
-        }
+        .section-header { margin-bottom: 1.8rem; }
+        .section-kicker { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.16em; color: #9ca3af; margin-bottom: 0.35rem; }
+        .section-title { font-size: 1.4rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.35rem; }
+        .section-subtitle { font-size: 0.9rem; color: #9ca3af; }
 
-        .hero-meta-body span {
-            color: #cbd5e1;
-        }
-
-        section {
-            margin-bottom: 3.5rem;
-        }
-
-        .section-header {
-            margin-bottom: 1.8rem;
-        }
-
-        .section-kicker {
-            font-size: 0.78rem;
-            text-transform: uppercase;
-            letter-spacing: 0.16em;
-            color: #9ca3af;
-            margin-bottom: 0.35rem;
-        }
-
-        .section-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.35rem;
-        }
-
-        .section-subtitle {
-            font-size: 0.9rem;
-            color: #9ca3af;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
-            gap: 1.6rem;
-        }
+        .grid-2 { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr); gap: 1.6rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.6rem; }
 
         .card {
             border-radius: var(--radius-lg);
@@ -358,87 +187,47 @@
             padding: 1.4rem 1.5rem;
             box-shadow: var(--shadow-soft);
         }
+        .card-muted { background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.98)); }
 
-        .card-muted {
-            background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.98));
+        /* AirLume research card — warm amber accent */
+        .card-airlume {
+            background: radial-gradient(circle at top left, rgba(120, 80, 0, 0.22), rgba(15, 23, 42, 0.98));
+            border-color: rgba(251, 191, 36, 0.35);
         }
 
         .card-type {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            padding: 0.2rem 0.6rem;
-            border-radius: 999px;
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            padding: 0.2rem 0.6rem; border-radius: 999px;
             background: rgba(15, 23, 42, 0.9);
             border: 1px solid rgba(148, 163, 184, 0.6);
-            font-size: 0.75rem;
-            color: #e5e7eb;
-            margin-bottom: 0.7rem;
+            font-size: 0.75rem; color: #e5e7eb; margin-bottom: 0.7rem;
         }
+        .card-type-dot { width: 6px; height: 6px; border-radius: 999px; background: #60a5fa; }
+        .card-type-dot-amber { width: 6px; height: 6px; border-radius: 999px; background: #fbbf24; }
 
-        .card-type-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 999px;
-            background: #60a5fa;
-        }
+        .card-title { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .card-subtitle { font-size: 0.85rem; color: #9ca3af; margin-bottom: 0.75rem; }
+        .card-body { font-size: 0.9rem; color: #e5e7eb; margin-bottom: 0.9rem; }
+        .card-body p + p { margin-top: 0.4rem; }
 
-        .card-title {
-            font-size: 1.05rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
+        .card-list { margin-top: 0.4rem; padding-left: 1.1rem; font-size: 0.88rem; color: #e5e7eb; }
+        .card-list li { margin-bottom: 0.25rem; }
 
-        .card-subtitle {
-            font-size: 0.85rem;
-            color: #9ca3af;
-            margin-bottom: 0.75rem;
-        }
+        .card-link { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.85rem; color: #60a5fa; text-decoration: none; }
+        .card-link svg { width: 13px; height: 13px; }
+        .card-link:hover { color: #93c5fd; }
 
-        .card-body {
-            font-size: 0.9rem;
-            color: #e5e7eb;
-            margin-bottom: 0.9rem;
+        .wip-inline {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            padding: 0.18rem 0.6rem; border-radius: 999px;
+            background: rgba(120, 80, 0, 0.35);
+            border: 1px solid rgba(251, 191, 36, 0.5);
+            font-size: 0.72rem; color: #fbbf24; font-weight: 500;
+            margin-bottom: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase;
         }
+        .wip-dot { width: 6px; height: 6px; border-radius: 999px; background: #fbbf24; animation: wip-pulse 1.8s ease-in-out infinite; }
 
-        .card-body p + p {
-            margin-top: 0.4rem;
-        }
-
-        .card-list {
-            margin-top: 0.4rem;
-            padding-left: 1.1rem;
-            font-size: 0.88rem;
-            color: #e5e7eb;
-        }
-
-        .card-list li {
-            margin-bottom: 0.25rem;
-        }
-
-        .card-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            font-size: 0.85rem;
-            color: #60a5fa;
-            text-decoration: none;
-        }
-
-        .card-link svg {
-            width: 13px;
-            height: 13px;
-        }
-
-        .card-link:hover {
-            color: #93c5fd;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.4rem;
-        }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.4rem; }
 
         .project-card {
             border-radius: var(--radius-md);
@@ -446,189 +235,84 @@
             border: 1px solid rgba(148, 163, 184, 0.45);
             padding: 1.1rem 1.2rem;
             box-shadow: 0 14px 35px rgba(15, 23, 42, 0.85);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            display: flex; flex-direction: column; justify-content: space-between;
             min-height: 170px;
         }
-		.project-card.wip {
-    border-color: rgba(251, 191, 36, 0.35);
-    background: radial-gradient(circle at top left, rgba(120, 80, 0, 0.18), rgba(15, 23, 42, 0.97));
-}
-
-.wip-banner {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0.18rem 0.6rem;
-    border-radius: 999px;
-    background: rgba(120, 80, 0, 0.35);
-    border: 1px solid rgba(251, 191, 36, 0.5);
-    font-size: 0.72rem;
-    color: #fbbf24;
-    font-weight: 500;
-    margin-bottom: 0.6rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-}
-
-      .wip-dot {
-         width: 6px;
-          height: 6px;
-          border-radius: 999px;
-          background: #fbbf24;
-          animation: wip-pulse 1.8s ease-in-out infinite;
-       }
-
-       @keyframes wip-pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
+        .project-card.wip {
+            border-color: rgba(251, 191, 36, 0.35);
+            background: radial-gradient(circle at top left, rgba(120, 80, 0, 0.18), rgba(15, 23, 42, 0.97));
+        }
+        .project-card.rvr {
+            border-color: rgba(34, 197, 94, 0.3);
+            background: radial-gradient(circle at top left, rgba(6, 78, 59, 0.18), rgba(15, 23, 42, 0.97));
         }
 
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 0.5rem;
+        .wip-banner {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            padding: 0.18rem 0.6rem; border-radius: 999px;
+            background: rgba(120, 80, 0, 0.35);
+            border: 1px solid rgba(251, 191, 36, 0.5);
+            font-size: 0.72rem; color: #fbbf24; font-weight: 500;
+            margin-bottom: 0.6rem; letter-spacing: 0.05em; text-transform: uppercase;
         }
 
-        .project-title {
-            font-size: 0.98rem;
-            font-weight: 600;
-        }
+        @keyframes wip-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-        .project-icon {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
+        .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; }
+        .project-title { font-size: 0.98rem; font-weight: 600; }
+        .project-icon { font-size: 1.2rem; opacity: 0.9; }
+        .project-desc { font-size: 0.88rem; color: #e5e7eb; margin-bottom: 0.7rem; }
 
-        .project-desc {
-            font-size: 0.88rem;
-            color: #e5e7eb;
-            margin-bottom: 0.7rem;
-        }
-
-        .project-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            font-size: 0.8rem;
-            color: #9ca3af;
-        }
+        .project-meta { display: flex; flex-wrap: wrap; gap: 0.6rem; font-size: 0.8rem; color: #9ca3af; }
 
         .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            padding: 0.15rem 0.55rem;
-            border-radius: 999px;
+            display: inline-flex; align-items: center; gap: 0.3rem;
+            padding: 0.15rem 0.55rem; border-radius: 999px;
             border: 1px solid rgba(148, 163, 184, 0.6);
             background: rgba(15, 23, 42, 0.9);
         }
+        .badge-dot { width: 7px; height: 7px; border-radius: 999px; background: #60a5fa; }
+        .badge-dot-green { width: 7px; height: 7px; border-radius: 999px; background: #22c55e; }
 
-        .badge-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 999px;
-            background: #60a5fa;
-        }
-
-        .project-link {
-            margin-top: 0.7rem;
-            font-size: 0.82rem;
-        }
-
-        .private-note {
-            font-size: 0.86rem;
-            color: #9ca3af;
-            margin-top: 0.4rem;
-        }
+        .project-link { margin-top: 0.7rem; font-size: 0.82rem; }
+        .private-note { font-size: 0.86rem; color: #9ca3af; margin-top: 0.4rem; }
 
         footer {
             border-top: 1px solid rgba(148, 163, 184, 0.3);
             padding: 1.8rem 1.5rem 2.2rem;
-            margin-top: 1rem;
-            text-align: center;
-            font-size: 0.8rem;
-            color: #9ca3af;
+            margin-top: 1rem; text-align: center;
+            font-size: 0.8rem; color: #9ca3af;
         }
 
         .scroll-top {
-            position: fixed;
-            right: 1.5rem;
-            bottom: 1.5rem;
-            width: 34px;
-            height: 34px;
-            border-radius: 999px;
+            position: fixed; right: 1.5rem; bottom: 1.5rem;
+            width: 34px; height: 34px; border-radius: 999px;
             border: 1px solid rgba(148, 163, 184, 0.7);
             background: rgba(15, 23, 42, 0.95);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #e5e7eb;
-            font-size: 0.9rem;
-            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            color: #e5e7eb; font-size: 0.9rem; cursor: pointer;
             box-shadow: 0 12px 30px rgba(15, 23, 42, 0.9);
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.18s ease, transform 0.18s ease;
-            z-index: 30;
+            opacity: 0; pointer-events: none;
+            transition: opacity 0.18s ease, transform 0.18s ease; z-index: 30;
         }
-
-        .scroll-top.visible {
-            opacity: 1;
-            pointer-events: auto;
-            transform: translateY(0);
-        }
-
-        .scroll-top:hover {
-            transform: translateY(-2px);
-        }
+        .scroll-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+        .scroll-top:hover { transform: translateY(-2px); }
 
         @media (max-width: 900px) {
-            .hero {
-                grid-template-columns: minmax(0, 1fr);
-            }
-
-            .hero-aside {
-                max-width: 320px;
-                margin: 0 auto;
-            }
-
-            .grid-2 {
-                grid-template-columns: minmax(0, 1fr);
-            }
+            .hero { grid-template-columns: minmax(0, 1fr); }
+            .hero-aside { max-width: 320px; margin: 0 auto; }
+            .grid-2 { grid-template-columns: minmax(0, 1fr); }
+            .grid-3 { grid-template-columns: minmax(0, 1fr); }
         }
-
         @media (max-width: 720px) {
-            .nav {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.6rem;
-            }
-
-            .nav-links {
-                font-size: 0.85rem;
-            }
-
-            .page {
-                padding-inline: 1.1rem;
-            }
+            .nav { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+            .nav-links { font-size: 0.85rem; }
+            .page { padding-inline: 1.1rem; }
         }
-
         @media (max-width: 520px) {
-            .hero-links {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .hero-meta-card {
-                font-size: 0.8rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
+            .hero-links { flex-direction: column; align-items: flex-start; }
+            .hero-meta-card { font-size: 0.8rem; }
+            .projects-grid { grid-template-columns: minmax(0, 1fr); }
         }
     </style>
 </head>
@@ -783,6 +467,44 @@
 
             </article>
         </div>
+		<!-- AirLume paper-->
+        <article class="card card-airlume" aria-label="AirLume research paper — in progress">
+            <div style="display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+                <div style="flex: 1; min-width: 260px;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.7rem; flex-wrap: wrap;">
+                        <div class="card-type" style="margin-bottom: 0;">
+                            <span class="card-type-dot-amber"></span>
+                            Research paper · Aviation safety · E-field modeling
+                        </div>
+                        <div class="wip-inline">
+                            <span class="wip-dot"></span>
+                            In progress
+                        </div>
+                    </div>
+                    <h3 class="card-title">AirLume: Atmospheric Lightning Risk Prediction Along Flight Paths</h3>
+                    <p class="card-subtitle">Physics-based electric field risk modeling to keep aircraft clear of lightning formation zones.</p>
+                    <div class="card-body">
+                        <p>
+                            AirLume is a multi-language research system that analyzes atmospheric conditions along
+                            active flight paths to predict regions of lightning formation risk. A physics-based
+                            electric field (E-field) engine processes real-time weather data to score route segments
+                            by lightning exposure, enabling pre-departure and in-flight route amendments.
+                        </p>
+                        <ul class="card-list">
+                            <li>Integrates real-time atmospheric data (CAPE, wind shear, moisture flux) with an E-field risk model</li>
+                            <li>Multi-language architecture: C for the core E-field engine, Ada for safety-critical decision logic, Python for data ingestion, Java for visualization</li>
+                            <li>Generates alternative route suggestions weighted by cumulative lightning risk</li>
+                            <li>Route visualization and path-comparison interface currently in development</li>
+                        </ul>
+                    </div>
+                    <a class="card-link" href="https://github.com/tishap27/AirLume" target="_blank" rel="noreferrer">
+                        View repository
+                        <svg viewBox="0 0 16 16"><path d="M6.364 3.05 5.657 3.757 9.192 7.293 5 7.293 5 8.293 11 8.293 11 2.293 10 2.293 10 6.485z"/></svg>
+                    </a>
+                    <span style="color: #9ca3af; font-size: 0.82rem; margin-left: 1rem;">Publication forthcoming on ResearchGate</span>
+                </div>
+            </div>
+        </article>
     </section>
 
     <!-- Public projects (curated GitHub) -->
@@ -972,7 +694,26 @@
                 </a>
             </article>
 
-            <!-- 8. C Programming Sandbox -->
+			<!-- 8. RVR-Modbus — NEW -->
+            <article class="project-card rvr" aria-label="RVR Modbus project">
+                <div>
+                    <div class="project-header">
+                        <h3 class="project-title">RVR-Modbus: Runway Visibility Service</h3>
+                        <div class="project-icon" aria-hidden="true">🌫️</div>
+                    </div>
+                    <p class="project-desc">
+                        An aviation simulation system that reads Runway Visual Range (RVR) from serial sensor input, applies ambient light intensity adjustment, and publishes processed visibility data over Modbus TCP. Designed for Raspberry Pi with ATmega2560 hardware integration for real-time airport visibility simulation.
+                    </p>
+                    <div class="project-meta">
+                        <span class="badge"><span class="badge-dot-green"></span>C · Python · libmodbus</span>
+                        <span class="badge">Embedded · Raspberry Pi</span>
+                        <span class="badge">Airport Systems</span>
+                    </div>
+                </div>
+                <a class="card-link project-link" href="https://github.com/tishap27/rvr-modbus" target="_blank" rel="noreferrer">View repository <svg viewBox="0 0 16 16"><path d="M6.364 3.05 5.657 3.757 9.192 7.293 5 7.293 5 8.293 11 8.293 11 2.293 10 2.293 10 6.485z"/></svg></a>
+            </article>
+
+            <!-- 9. C Programming Sandbox -->
             <article class="project-card">
                 <div class="project-header">
                     <h3 class="project-title">C & Ada Programming Archive</h3>
